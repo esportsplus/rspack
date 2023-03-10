@@ -19,7 +19,10 @@
         "build": "tsc && tsc-alias",
         "-": "-",
         "prepare": "npm run build",
-        "prepublishOnly": "npm run build"
+        "prepublishOnly": "npm run build",
+        "--": "--",
+        "example:build": "rspack",
+        "example:serve": "rspack serve"
     },
     "types": "build/index.d.ts",
     "version": "0.0.1"
