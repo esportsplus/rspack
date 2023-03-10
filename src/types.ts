@@ -15,12 +15,12 @@ type Configuration = {
 } & RspackConfiguration;
 
 type NestedConfiguration = {
-    entry: NestedEntry | NonNullable< Configuration['entry'] >,
+    entry: NestedEntry | RspackConfiguration['entry'],
     use?: (plugins: ReturnType<typeof p>) => void;
-} & Omit<Configuration, 'entry'>;
+} & Omit<RspackConfiguration, 'entry'>;
 
 interface NestedEntry {
-    [key: string]: NestedEntry | NonNullable< Configuration['entry'] >
+    [key: string]: NestedEntry | RspackConfiguration['entry']
 };
 
 type StrictConfiguration = Omit<NestedConfiguration, 'entry'> & { entry: Record<string, NestedEntry> };

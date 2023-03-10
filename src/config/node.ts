@@ -22,7 +22,6 @@ export default (base: StrictConfiguration) => {
         // If plugin has not been set all
         // node_module packages will be marked as external
         plugins.node.include();
-        plugins.typescript();
     };
 
     return config(base);

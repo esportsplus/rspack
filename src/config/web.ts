@@ -15,8 +15,6 @@ export default (base: StrictConfiguration) => {
             previous(plugins);
         }
 
-        plugins.typescript();
-
         plugins.web.fonts();
         plugins.web.images();
         plugins.web.json();

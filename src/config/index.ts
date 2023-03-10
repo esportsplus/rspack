@@ -29,7 +29,7 @@ function config(base: NestedConfiguration) {
     base.plugins ??= [];
 
     base.resolve ??= {};
-    base.resolve.tsConfigPath = base.resolve?.tsConfigPath || 'tsconfig.json';
+    base.resolve.tsConfigPath = base.resolve?.tsConfigPath || path.resolve('./tsconfig.json');
 
     if (base.use) {
         base.use( plugins(base as Configuration) );
