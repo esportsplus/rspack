@@ -2,7 +2,7 @@ import { StrictConfiguration } from '~/types';
 import config from './index';
 
 
-export default (base: StrictConfiguration) => {
+export default (base: StrictConfiguration, options: Parameters<typeof config>[1] = {}) => {
     base.output ??= {};
     base.output.path ??= 'public';
 
@@ -26,5 +26,5 @@ export default (base: StrictConfiguration) => {
         plugins.web.txt();
     };
 
-    return config(base);
+    return config(base, options);
 };

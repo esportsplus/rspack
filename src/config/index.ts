@@ -6,7 +6,7 @@ import node from './node';
 import web from './web';
 
 
-function config(base: NestedConfiguration, options: { hash?: boolean }) {
+function config(base: NestedConfiguration, options: { hash?: boolean } = {}) {
     base.entry = flatten(base.entry);
 
     if (!['production', 'development'].includes(base.mode || '')) {
