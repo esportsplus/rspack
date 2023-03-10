@@ -1,8 +1,8 @@
-import { StrictConfiguration } from '~/types';
+import { NestedConfiguration } from '~/types';
 import config from './index';
 
 
-export default (base: StrictConfiguration, options: Parameters<typeof config>[1] = {}) => {
+export default (base: NestedConfiguration, options: Parameters<typeof config>[1] = {}) => {
     // Disables all node polyfills
     base.node ??= {};
     base.node.global = false;

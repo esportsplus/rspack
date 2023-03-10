@@ -31,7 +31,7 @@ const entry = (pattern: string | string[]) => {
 };
 
 const flatten = (data: NestedConfiguration['entry']) => {
-    if (typeof data === 'object' && !Array.isArray(data) && data !== null) {
+    if (typeof data === 'object' && data !== null && !Array.isArray(data)) {
         return recursive(data as EntryObject);
     }
 

@@ -23,7 +23,5 @@ interface NestedEntry {
     [key: string]: NestedEntry | RspackConfiguration['entry']
 };
 
-type StrictConfiguration = Omit<NestedConfiguration, 'entry'> & { entry: Record<string, NestedEntry> };
 
-
-export { Configuration, EntryObject, NestedConfiguration, NestedEntry, StrictConfiguration };
+export { Configuration, EntryObject, NestedConfiguration };
