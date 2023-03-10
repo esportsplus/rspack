@@ -6,7 +6,7 @@ import node from './node';
 import web from './web';
 
 
-function config(base: NestedConfiguration) {
+function config(base: NestedConfiguration, options: { hash?: boolean }) {
     base.entry = flatten(base.entry);
 
     if (!['production', 'development'].includes(base.mode || '')) {
@@ -21,6 +21,10 @@ function config(base: NestedConfiguration) {
     base.optimization ??= {};
 
     base.output ??= {};
+
+    if (base.mode === 'production' && options.hash !== false) {
+        base.output.filename = '[contenthash][ext]';
+    }
 
     if (base.output?.path) {
         base.output.path = path.resolve( base.output.path );

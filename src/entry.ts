@@ -1,6 +1,5 @@
 import { EntryObject, NestedConfiguration } from "~/types";
-import { entry as css } from './plugins/web/sass';
-import { entry as js } from './plugins/typescript';
+import path from './path';
 
 
 function recursive(data: EntryObject, prefix: string = '') {
@@ -27,6 +26,10 @@ function recursive(data: EntryObject, prefix: string = '') {
 }
 
 
+const entry = (pattern: string | string[]) => {
+    return path.resolve(pattern);
+};
+
 const flatten = (data: NestedConfiguration['entry']) => {
     if (typeof data === 'object' && !Array.isArray(data) && data !== null) {
         return recursive(data as EntryObject);
@@ -36,5 +39,5 @@ const flatten = (data: NestedConfiguration['entry']) => {
 }
 
 
-export default { css, js };
+export default entry;
 export { flatten };
